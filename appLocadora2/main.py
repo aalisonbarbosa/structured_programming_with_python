@@ -1,40 +1,28 @@
 from operacoesbd import *
+from methods import *
 
 conn = criarConexao("127.0.0.1","root","12345","appLocadora2")
 
 opcao = -1
 
 while opcao:
-    print("Escolha uma opção:\n1)Adicionar\n2)Listar\n3)Sair")
-    
-    opcao = int(input("Digite sua opção: "))
+    print("\n1) Listar \n2) Adicionar \n3) Pesquisar \n4) Remover \n5) Substituir \n6) Quantidade \n7) Sair")
+    opcao = int(input("Digite a sua opção: "))
     
     if opcao == 1:
-
-        nome = input("Digite o nome do novo filme: ")
-        sinopse = input("Digite a sinopse do novo filme: ")
-        ano = int(input("Digite o ano do novo filme: "))
-
-        sql = "insert into filmes(nome, sinopse, ano)values(%s,%s,%s)"
-
-        dados =  [nome, sinopse, ano]
-
-        insertNoBancoDados(conn, sql, dados)
-        print("Filme inserido com sucesso!")
-
+        listarFilmes(conn)
     elif opcao == 2:
-        
-        consultaListagem = "select * from filmes"
-        filmes = listarBancoDados(conn, consultaListagem)
-
-        if len(filmes) == 0:
-            print("Não há filmes cadastrados!")
-        else:
-            for filme in filmes:
-                print(f"- filme: {filme[1]}, lançado no ano {filme[3]}.")
-
-    elif opcao != 3:   
-        print("Opçaõ inválida!")
+        adicionarFilme(conn)
+    elif opcao == 3:   
+        pesquisarPeloCodigo(conn)
+    elif opcao == 4:
+        removerFilmePeloCodigo(conn)
+    elif opcao == 5:
+        atualizarNomeFilme(conn)
+    elif opcao == 6:
+        obterQuantidadeFilmes(conn)
+    elif opcao != 7:
+        print("Opção inválida!")
     else:
         break
 
