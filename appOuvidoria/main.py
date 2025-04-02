@@ -1,37 +1,53 @@
 from methods import *
 
 listaReclamacoes = []
-listaSugestoes = []
-listaElogios = []
-
-opcoes = {
-    1: ("reclamação", "reclamações", listaReclamacoes),
-    2: ("sugestão", "sugestões", listaSugestoes),
-    3: ("elogio", "elogios", listaElogios)
-}
 
 while True:
 
     print("\n============================")
-    print("  LISTA DE MANIFESTAÇÕES  ")
-    print("============================\n")
-    print("1) Enviar uma reclamação")
-    print("2) Enviar uma sugestão")
-    print("3) Enviar um elogio")
-    print("4) Sair do sistema\n")
+    print("        MANIFESTAÇÕES       ")
+    print("============================")
+    print("1) Listar as reclamações.")
+    print("2) Criar uma nova reclamação.")
+    print("3) Exibir quantidade de reclamações.")
+    print("4) Pesquisar um reclamação por código.")
+    print("5) Sair do programa.\n")
 
-    servico = input("Escolha um serviço: ")
+    opcao = input("Informe sua opção: ")
 
-    if not servico.isdigit():
-        print("\n⚠️ Serviço inválido. Tente novamente!\n")
+    if validarNumero(opcao):  
+        opcao = int(opcao)
+    else:
+        print("\n⚠️ Informe uma opção válida!\n")
         continue
 
-    servico = int(servico)
+    if opcao == 1:
+            listarManifestacao(listaReclamacoes)
+    elif opcao == 2:
 
-    if servico in opcoes:
-        manifestacao, manifestacaoPlural, lista = opcoes[servico]
-        servicos(lista, manifestacao, manifestacaoPlural)
-    elif servico == 4:
+        novaManifestacao = input(f"\nDescreva sua nova reclamação: ")
+        manifestacao = criarManifestacao(listaReclamacoes, novaManifestacao)
+
+        if manifestacao:
+            print(f"\n✅ Reclamação cadastrada com sucesso! O seu código é {len(listaReclamacoes)}\n")
+        else: 
+            print(f"\n⚠️ Informe uma reclamação válida!\n")
+
+    elif opcao == 3:
+        exibirQuantidadeTotalManifestacoes(listaReclamacoes)
+    elif opcao == 4:
+        
+        codigoManifestacao = input(f"\nInforme o código da manifestação: ")
+
+        if validarNumero(codigoManifestacao):
+            codigoManifestacao = int(codigoManifestacao)
+        else: 
+            print("n⚠️ Informe um código válido!")
+            continue
+
+        pesquisarManifestacao(listaReclamacoes, codigoManifestacao)
+
+    elif opcao == 5:
         print("\n✅ Obrigado pelo seu feedback! Saindo do sistema...\n")
         break
     else:
