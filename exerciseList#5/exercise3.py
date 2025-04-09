@@ -29,3 +29,5 @@ def converterMoeda(x, moedaOrigem, escolha):
 
 if escolha > 0 and escolha < 4:
     print(converterMoeda(valor, moedaOrigem, escolha))
+else: 
+    print("Escolha inválida!")

@@ -14,7 +14,7 @@ while True:
 
 intervalo = ""
 soma = 0
-# numero1 + 1 serve para o rangecomeçar pelo próximo número depois do numero1
+
 for num in range(numero1 + 1, numero2):
     intervalo = intervalo + (f"{num} ")
     soma = soma + num

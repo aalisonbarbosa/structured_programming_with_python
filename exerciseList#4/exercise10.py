@@ -13,7 +13,7 @@ while True:
     break
 
 intervalo = ""
-# numero1 + 1 serve para o range começar pelo próximo número depois do numero1
+
 for num in range(numero1 + 1, numero2):
     intervalo = intervalo + (f"{num} ")
 print(f"Intervalo entre os números:\n{intervalo}")
