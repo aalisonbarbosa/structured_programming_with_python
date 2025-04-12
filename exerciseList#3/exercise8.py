@@ -4,6 +4,7 @@ numeros = []
 
 while len(numeros) < 3:
     numero = input("Digite um número: ")
+    
     try:
         numero = float(numero)
         numeros.append(numero)

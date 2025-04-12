@@ -1,43 +1,41 @@
 from operacoesbd import *
 
+# === Interface de usuário ===
 def escolherCategoria():
-        print("======================")
-        print("      CATEGORIAS      ")
-        print("======================")
-        print("1) Reclamação\n2) Sugestão\n3) Elogios")
+    exibirMenuCategorias()
+    escolha = obterEscolhaCategoria()
+    
+    if not validarEscolhaCategoria(escolha):
+        print("⚠️  Digite uma opção válida!")
+        return ""
 
-        escolha = input("Escolha a categoria da manifestação: ")
-        
-        if validarNumero(escolha):
-            escolha = int(escolha)
-        else: 
-            print("⚠️  Digite uma opção válida!")
+    return converterEscolhaParaCategoria(int(escolha))
 
-        if escolha > 0 and escolha < 4:
-            if escolha == 1:
-                categoria = "reclamação"
-            elif escolha == 2:
-                categoria = "sugestão"
-            elif escolha == 3:
-                categoria = "elogio"
+def exibirMenuCategorias():
+    print("======================")
+    print("      CATEGORIAS      ")
+    print("======================")
+    print("1) Reclamação\n2) Sugestão\n3) Elogio")
 
-            return categoria
-        else:
-            print("⚠️  Digite uma opção válida!")
-            return ""
+def obterEscolhaCategoria():
+    escolha = input("Escolha a categoria da manifestação: ")
+    return escolha
 
-def validarNumero(num):
-    try:
-        num = int(num)
-        return True
-    except ValueError:
+def validarEscolhaCategoria(escolha):
+    if not validarNumero(escolha):
         return False
+    escolha = int(escolha)
+    return 1 <= escolha <= 3
 
-def listarManifestacoes(conn):
-    sql = "select * from manifestacoes"
+def converterEscolhaParaCategoria(numero):
+    categorias = {
+        1: "reclamação",
+        2: "sugestão",
+        3: "elogio"
+    }
+    return categorias.get(numero, "")
 
-    manifestacoes = listarBancoDados(conn, sql)
-
+def exibirManifestacoes(manifestacoes):
     if len(manifestacoes) == 0:
         print("❌ Não há manifestações cadastradas!")
     else:
@@ -45,33 +43,35 @@ def listarManifestacoes(conn):
         for manifestacao in manifestacoes:
             print(f"manifestação {manifestacao[0]}) categoria: {manifestacao[1]} - {manifestacao[2]}")
 
-def listarManifestacoesCategoria(conn, categoria):
+# === Operações de banco de dados ===
+def buscarManifestacoes(conn):
+    sql = "select * from manifestacoes"
+
+    manifestacoes = listarBancoDados(conn, sql)
+
+    return manifestacoes
+
+def buscarManifestacoesCategoria(conn, categoria):
     sql = "select * from manifestacoes where categoria = %s"
     dados = [categoria]
 
     manifestacoes =  listarBancoDados(conn, sql, dados)
 
-    if len(manifestacoes) == 0:
-        print("❌ Não há manifestações cadastradas!")
-    else:
-        print("Lista de manifestações:")
-        for manifestacao in manifestacoes:
-            print(f"manifestação {manifestacao[0]}) categoria: {manifestacao[1]} - {manifestacao[2]}")
+    return manifestacoes
 
 def criarManifestacao(conn, categoria, assunto):
-    
     sql = "insert into manifestacoes(categoria, assunto)values(%s,%s)"
     dados = [categoria, assunto]
 
     insertNoBancoDados(conn, sql, dados)
 
 
-def exibirQuantidadeManifestacoes(conn):
+def buscarQuantidadeManifestacoes(conn):
     sql = "select count(*) from manifestacoes"
 
     quantidadeManifestacoes = listarBancoDados(conn, sql)
 
-    print(f"No momento temos {quantidadeManifestacoes[0][0]} manifestações cadastradas!")
+    return quantidadeManifestacoes
 
 def pesquisarManifestacaoCodigo(conn, codigo):
     sql = "select * from manifestacoes where id = %s"
@@ -79,10 +79,7 @@ def pesquisarManifestacaoCodigo(conn, codigo):
 
     manifestacao = listarBancoDados(conn, sql, dados)
 
-    if len(manifestacao) == 0:
-        print("❌ Manifestação não encontrada!")
-    else:
-        print(f"🔎 manifestação {manifestacao[0][0]}) categoria: {manifestacao[0][1]} - {manifestacao[0][2]}")
+    return manifestacao
 
 def excluirManifestacao(conn, codigo):
     sql = "delete from manifestacoes where id = %s"
@@ -91,3 +88,11 @@ def excluirManifestacao(conn, codigo):
     linhasAfetadas = excluirBancoDados(conn, sql, dados)
 
     return linhasAfetadas
+
+# === Utilitários ===
+def validarNumero(num):
+    try:
+        num = int(num)
+        return True
+    except ValueError:
+        return False

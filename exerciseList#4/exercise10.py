@@ -12,8 +12,8 @@ while True:
 
     break
 
-intervalo = ""
+intervaloNumeros = ""
 
 for num in range(numero1 + 1, numero2):
-    intervalo = intervalo + (f"{num} ")
-print(f"Intervalo entre os números:\n{intervalo}")
+    intervaloNumeros = intervaloNumeros + (f"{num} ")
+print(f"Intervalo entre os números:\n{intervaloNumeros}")

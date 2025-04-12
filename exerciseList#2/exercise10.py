@@ -2,6 +2,6 @@
 # • F = (C×1.8) + 32
 
 tempCel = float(input("Temperatura em graus celsius: "))
-tempFah = (tempCel*1.8) + 32
+tempFah = (tempCel * 1.8) + 32
 
 print("Temperatura em graus fahrenheit: ", round(tempFah, 2))

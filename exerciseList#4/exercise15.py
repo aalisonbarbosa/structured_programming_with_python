@@ -14,5 +14,5 @@ while True:
     for i in range(1, numero + 1):
         fatorial *= i
     
-    print(f"{numero}! = {fatorial}")
+    print(f"{numero}! = {calculoFatorial} = {fatorial}")
     break

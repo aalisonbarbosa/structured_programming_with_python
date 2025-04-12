@@ -4,6 +4,7 @@ diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sáb
 
 while True:
     dia = int(input("Digite um número de 1 a 7: "))
+    
     if dia > 0 and dia < 8:
         print("Dia da semana correspondente:", diasSemana[dia - 1])
     else:

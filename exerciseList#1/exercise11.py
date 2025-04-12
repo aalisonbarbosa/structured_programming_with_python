@@ -14,19 +14,32 @@ salarioAtual = float(input("Salário atual: "))
 
 if salarioAtual > 0:
     if salarioAtual <= 280:
-        aumento, perAumento = 1.2, "20%"
-        salarioReajustado = salarioAtual * aumento
+
+        aumento = salarioAtual * 0.2
+        percentualAumento = "20%"
+        salarioReajustado = salarioAtual + aumento
+
     if salarioAtual > 280 and salarioAtual <= 700:
-        aumento, perAumento = 1.15, "15%"
-        salarioReajustado = salarioAtual * aumento
+
+        aumento = salarioAtual * 0.15
+        percentualAumento = "15%"
+        salarioReajustado = salarioAtual + aumento
+
     if salarioAtual > 700 and salarioAtual < 1500:
-        aumento, perAumento = 1.1, "10%"
-        salarioReajustado = salarioAtual * aumento
+
+        aumento = salarioAtual * 0.1 
+        percentualAumento = "10%"
+        salarioReajustado = salarioAtual + aumento
+
     if salarioAtual > 1500:
-        aumento, perAumento = 1.05, "5%"
-        salarioReajustado = salarioAtual * aumento
-        
-print("Salário antes do reajuste: ", salarioAtual)
-print("Percentual de aumento aplicado: ", perAumento)
-print("Valor do aumento: ", round(salarioReajustado - salarioAtual,2))
-print("Novo salário, após o aumento: ", round(salarioReajustado, 2))
+
+        aumento = salarioAtual * 0.05 
+        percentualAumento = "5%"
+        salarioReajustado = salarioAtual + aumento
+
+    print("Salário antes do reajuste:", salarioAtual)
+    print("Percentual de aumento aplicado:", percentualAumento)
+    print("Valor do aumento:", round(aumento, 2))
+    print("Novo salário, após o aumento:", round(salarioReajustado, 2))
+else:
+    print("Informe um salário acima de 0 reais!")

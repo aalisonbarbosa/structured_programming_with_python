@@ -1,4 +1,4 @@
-#4 Realiza a leitura de 3 floatse imprime a média aritmética.
+#4 Realiza a leitura de 3 floats e imprime a média aritmética.
 
 numero1 = float(input("Digite um número: "))
 numero2 = float(input("Digite um número: "))

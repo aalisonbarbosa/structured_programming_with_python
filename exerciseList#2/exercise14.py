@@ -2,8 +2,9 @@
 
 while True:
     pesoPeixe = float(input("Kilos de peixe: "))
+
     if pesoPeixe > 0:
-        if(pesoPeixe > 50):
+        if pesoPeixe > 50:
             excessoPeso = pesoPeixe - 50
             multa = excessoPeso * 4
 

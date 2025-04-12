@@ -3,12 +3,15 @@
 # • A mensagem "Reprovado", se a média for menor do que sete; 
 # • A mensagem "Aprovado com Distinção", se a média for igual a dez.
 
-media = (int(input("Nota 1: ")) + int(input("Nota 2: "))) / 2
+nota1 = float(input("Nota 1: "))
+nota2 = float(input("Nota 2: "))
 
-if media >= 0 and media <= 10:
-    if media == 10:
+mediaNotas = (nota1 + nota2) / 2
+
+if mediaNotas >= 0 and mediaNotas <= 10:
+    if mediaNotas == 10:
         print("Aprovado com Distinção")
-    elif media > 6 and media < 10:
+    elif mediaNotas > 6 and mediaNotas < 10:
         print("Aprovado")
     else: 
         print("Reprovado")

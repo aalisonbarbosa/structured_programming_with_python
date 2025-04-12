@@ -12,11 +12,11 @@ while True:
 
     break
 
-intervalo = ""
-soma = 0
+intervaloNumeros = ""
+somaNumeros = 0
 
 for num in range(numero1 + 1, numero2):
-    intervalo = intervalo + (f"{num} ")
-    soma = soma + num
+    intervaloNumeros = intervaloNumeros + (f"{num} ")
+    somaNumeros = somaNumeros + num
 
-print(f"Intervalo entre os números:\n{intervalo}\nSoma do intervalo entre os números:\n{soma}")
+print(f"Intervalo entre os números:\n{intervaloNumeros}\nSoma do intervalo entre os números:\n{somaNumeros}")

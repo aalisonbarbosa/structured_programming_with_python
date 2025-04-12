@@ -4,7 +4,7 @@ listaReclamacoes = []
 
 while True:
 
-    print("\n============================")
+    print("============================")
     print("        MANIFESTAÇÕES       ")
     print("============================")
     print("1) Listar as reclamações.")
@@ -22,30 +22,30 @@ while True:
         continue
 
     if opcao == 1:
-            listarManifestacao(listaReclamacoes)
+            listarReclamacoes(listaReclamacoes)
     elif opcao == 2:
 
-        novaManifestacao = input(f"\nDescreva sua nova reclamação: ")
-        manifestacao = criarManifestacao(listaReclamacoes, novaManifestacao)
+        novaReclamacao = input(f"\nDescreva sua nova reclamação: ")
+        reclamacao = criarReclamacao(listaReclamacoes, novaReclamacao)
 
-        if manifestacao:
+        if reclamacao:
             print(f"\n✅ Reclamação cadastrada com sucesso! O seu código é {len(listaReclamacoes)}\n")
         else: 
             print(f"\n⚠️ Informe uma reclamação válida!\n")
 
     elif opcao == 3:
-        exibirQuantidadeTotalManifestacoes(listaReclamacoes)
+        exibirQuantidadeTotalReclamacoes(listaReclamacoes)
     elif opcao == 4:
         
-        codigoManifestacao = input(f"\nInforme o código da manifestação: ")
+        codigoReclamacao = input(f"\nInforme o código da manifestação: ")
 
-        if validarNumero(codigoManifestacao):
-            codigoManifestacao = int(codigoManifestacao)
+        if validarNumero(codigoReclamacao):
+            codigoReclamacao = int(codigoReclamacao)
         else: 
             print("n⚠️ Informe um código válido!")
             continue
 
-        pesquisarManifestacao(listaReclamacoes, codigoManifestacao)
+        pesquisarReclamacao(listaReclamacoes, codigoReclamacao)
 
     elif opcao == 5:
         print("\n✅ Obrigado pelo seu feedback! Saindo do sistema...\n")

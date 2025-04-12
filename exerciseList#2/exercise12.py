@@ -2,6 +2,6 @@
 
 altura = float(input("Informe sua altura(metros): "))
 
-pesoIdeal = (72.7*altura) - 58
+pesoIdeal = (72.7 * altura) - 58
 
 print("Seu peso ideal: ", round(pesoIdeal, 2))

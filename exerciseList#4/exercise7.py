@@ -7,4 +7,5 @@ while len(numeros) < 5:
     numeros.append(num)
 
 maiorNumero = sorted(numeros, reverse=True)[0]
+
 print(f"O maior número é:\n{maiorNumero}")

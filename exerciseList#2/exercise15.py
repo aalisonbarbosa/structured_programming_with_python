@@ -10,8 +10,14 @@ horasTrabalhadasMes = float(input("Informe quantas horas trabalhou no mês: "))
 
 salarioBruto = ganhoHora * horasTrabalhadasMes
 
-print("+ Salário Bruto : R$", salarioBruto)
-print("- IR (11%) : R$", salarioBruto * 0.11)
-print("- INSS (8%) : R$", salarioBruto * 0.08)
-print("- Sindicato (5%) : R$", salarioBruto * 0.05)
-print("= Salário líquido : R$", salarioBruto * 0.76)
+descontoImpostoRenda = salarioBruto * 0.11
+descontoINSS = salarioBruto * 0.08
+descontoSindicato = salarioBruto * 0.05
+
+salarioLiquido = salarioBruto - descontoImpostoRenda - descontoINSS - descontoSindicato
+
+print("+ Salário Bruto: R$", salarioBruto)
+print("- IR (11%): R$", descontoImpostoRenda)
+print("- INSS (8%): R$", descontoINSS)
+print("- Sindicato (5%): R$", descontoSindicato)
+print("= Salário líquido: R$", salarioLiquido)

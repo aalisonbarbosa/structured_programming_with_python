@@ -6,7 +6,7 @@ while len(numeros) < 5:
     num = int(input("Informe um número: "))
     numeros.append(num)
 
-soma =  sum(numeros)
-media = soma / len(numeros)
+somaNumeros =  sum(numeros)
+mediaNumeros = somaNumeros / len(numeros)
 
-print(f"A soma dos números é:\n{soma}\nA média dos números é:\n{media}")
+print(f"A soma dos números é:\n{somaNumeros}\nA média dos números é:\n{mediaNumeros}")

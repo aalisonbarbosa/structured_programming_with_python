@@ -15,32 +15,38 @@ while opcao != 7:
 
     if validarNumero(opcao):
        opcao = int(opcao)
-    else: 
-        print("⚠️  Digite uma opção válida!")
 
     if opcao == 1:
 
-        listarManifestacoes(conn)
+        manifestacoes = buscarManifestacoes(conn)
+
+        exibirManifestacoes(manifestacoes)
 
     elif opcao == 2:
 
         categoria = escolherCategoria()
         
         if len(categoria) > 0:
-            listarManifestacoesCategoria(conn, categoria)
+            manifestacoes = buscarManifestacoesCategoria(conn, categoria)
+
+            exibirManifestacoes(manifestacoes)
 
     elif opcao == 3:
 
         categoria = escolherCategoria()
-        assunto = input("Digite sua manifestação: ")
 
-        criarManifestacao(conn,categoria, assunto)
-        
-        print(f"✅ Nova manifestação criada com sucesso!")
+        if len(categoria) > 0:
+
+            assunto = input("Digite sua manifestação: ")
+
+            criarManifestacao(conn,categoria, assunto)
+            print(f"✅ Nova manifestação criada com sucesso!")
 
     elif opcao == 4:
 
-        exibirQuantidadeManifestacoes(conn)
+        quantidadeManifestacoes = buscarQuantidadeManifestacoes(conn)
+
+        print(f"No momento temos {quantidadeManifestacoes[0][0]} manifestações cadastradas!")
 
     elif opcao == 5:
         
@@ -51,7 +57,12 @@ while opcao != 7:
         else: 
             print("⚠️  Digite um código válido!")
 
-        pesquisarManifestacaoCodigo(conn, codigo)
+        manifestacao = pesquisarManifestacaoCodigo(conn, codigo)
+
+        if len(manifestacao) == 0:
+            print("❌ Manifestação não encontrada!")
+        else:
+            print(f"🔎 manifestação {manifestacao[0][0]}) categoria: {manifestacao[0][1]} - {manifestacao[0][2]}")
 
     elif opcao == 6:
 

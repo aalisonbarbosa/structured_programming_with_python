@@ -13,11 +13,15 @@ while True:
         print("Informe um número entre 1 e 10")
         continue
     
-    num = 0
+    multiplicador = 0
 
-    while num <= 10:
-        resultado = numero * num
-        tabuada = (f"{numero} x {num} = {resultado}")
+    while multiplicador <= 10:
+
+        resultadoTabuada = numero * multiplicador
+
+        tabuada = (f"{numero} x {multiplicador} = {resultadoTabuada}")
+
         print(tabuada)
-        num = num + 1
+        
+        multiplicador = multiplicador + 1
     break

@@ -3,12 +3,13 @@
 
 while True:
     print("Em qual turno você estuda?")
-    turno = input("Digite M para matutino, V para vespertino e N para noturno: ").upper().replace(" ", "")
-    if turno == "M":
+    turno = input("Digite M para matutino, V para vespertino e N para noturno: ")
+
+    if turno == "Mm":
         print("Bom dia!")
-    elif turno == "V":
+    elif turno == "Vv":
         print("Boa tarde!")
-    elif turno == "N":
+    elif turno == "Nn":
         print("Boa noite!")
     else:
         print("Turno inválido!")

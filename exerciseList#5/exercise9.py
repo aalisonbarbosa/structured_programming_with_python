@@ -4,12 +4,12 @@ salario = float(input("Informe seu salário: "))
 
 def calcImposto(salario):
     if salario <= 2000: 
-        imposto = 0.12
+        taxaImposto = 0.12
     elif salario > 2000:
-        imposto = 0.25
+        taxaImposto = 0.25
     
-    calculo = salario * imposto
+    imposto = salario * taxaImposto
 
-    return calculo
+    return imposto
 
 print(calcImposto(salario))

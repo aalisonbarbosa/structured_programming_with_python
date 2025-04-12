@@ -2,9 +2,9 @@
 
 notas = [8, 7.5, 8.2]
 
-def analisarNotas(nota):
-    media = sum(nota)/len(nota)
+def analisarNotas(notas):
+    mediaNotas = sum(notas)/len(notas)
 
-    return media
+    return mediaNotas
 
 print(analisarNotas(notas))

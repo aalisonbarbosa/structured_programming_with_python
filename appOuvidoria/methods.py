@@ -1,28 +1,28 @@
-def listarManifestacao(lista):
-    if len(lista) < 1:
+def listarReclamacoes(listaReclamacoes):
+    if len(listaReclamacoes) < 1:
         print(f"\n❌ Não há reclamções cadastradas.\n")
     else:
         print(f"\nLista de reclamações:")
-        for num in range(len(lista)):
-            print(f"Reclamção {num+1}) {lista[num]}")
+        for num in range(len(listaReclamacoes)):
+            print(f"Reclamção {num+1}) {listaReclamacoes[num]}")
+        print()
 
-def criarManifestacao(lista, novaManifestacao):
-    if len(novaManifestacao) < 1:
+def criarReclamacao(listaReclamacoes, novaReclamacao):
+    if len(novaReclamacao) == 0:
         return False
     else:
-        lista.append(novaManifestacao)
+        listaReclamacoes.append(novaReclamacao)
         return True
 
-def exibirQuantidadeTotalManifestacoes(lista):
-    if len(lista) < 1:
+def exibirQuantidadeTotalReclamacoes(listaReclamacoes):
+    if len(listaReclamacoes) < 1:
         print(f"\n❌ Não há reclamações cadastradas.\n")
     else:
-        print(f"\n📊 Total de reclamações cadastradas: {len(lista)}\n")
+        print(f"\n📊 Total de reclamações cadastradas: {len(listaReclamacoes)}\n")
 
-def pesquisarManifestacao(lista, codigoManifestacao):
-
-    if codigoManifestacao > 0 and codigoManifestacao <= len(lista):
-        print(f"\n🔎 Reclamação {codigoManifestacao}: {lista[codigoManifestacao-1]}\n")
+def pesquisarReclamacao(listaReclamacao, codigo):
+    if codigo > 0 and codigo <= len(listaReclamacao):
+        print(f"\n🔎 Reclamação {codigo}: {listaReclamacao[codigo-1]}\n")
     else:
         print(f"\n❌ Reclamação não encontrada.\n")
 

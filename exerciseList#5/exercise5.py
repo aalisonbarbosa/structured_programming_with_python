@@ -2,8 +2,8 @@
 
 notas = [8, 7.5, 8.2]
 
-def analisarNotas(nota):
-    maiorNota = sorted(nota, reverse=True)[0]
+def analisarNotas(notas):
+    maiorNota = sorted(notas, reverse=True)[0]
 
     return maiorNota
 

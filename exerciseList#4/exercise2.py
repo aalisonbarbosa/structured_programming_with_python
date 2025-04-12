@@ -3,6 +3,7 @@
 while True:
     nome = input("Digite seu nome: ")
     senha = input("Digite sua senha: ")
+    
     if nome == senha:
         print("Sua senha não pode ser igual a seu nome!\nTente novamente!")
         continue
